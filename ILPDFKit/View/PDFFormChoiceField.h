@@ -41,5 +41,5 @@
  @return A new PDFFormChoiceField object. 
  */
 - (instancetype)initWithFrame:(CGRect)frame options:(NSArray *)opt NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)initWithCoder:(NSCoder *)aDecoder options:(NSArray *)opt NS_DESIGNATED_INITIALIZER;
 @end

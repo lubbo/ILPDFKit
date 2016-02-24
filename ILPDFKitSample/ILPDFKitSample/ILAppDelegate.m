@@ -6,8 +6,7 @@
 //  Copyright (c) 2015 Iwe Labs. All rights reserved.
 //
 
-#import "PDF.h"
-#import "PDFFormContainer.h"
+#import <ILPDFKit/ILPDFKit.h>
 #import "ILAppDelegate.h"
 
 @implementation ILAppDelegate {

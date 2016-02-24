@@ -53,22 +53,26 @@
  @return A new instance of PDFViewController initialized with data.
  */
 
-- (instancetype)initWithData:(NSData *)data NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithData:(NSData *)data;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil data:(NSData *)data NS_DESIGNATED_INITIALIZER;
+
 
 /** Creates a new instance of PDFViewController.
  
  @param name Resource to load.
  @return A new instance of PDFViewController initialized with a PDF resource named name.
  */
-- (instancetype)initWithResource:(NSString *)name NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)initWithResource:(NSString *)name;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil resource:(NSString *)name NS_DESIGNATED_INITIALIZER;
 /** Creates a new instance of PDFViewController.
  
  @param path Points to PDF file to load.
  @return A new instance of PDFViewController initialized with a PDF located at path.
  */
-- (instancetype)initWithPath:(NSString *)path NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPath:(NSString *)path;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil path:(NSString *)path NS_DESIGNATED_INITIALIZER;
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
 /**---------------------------------------------------------------------------------------
  * @name Reloading Content
  *  ---------------------------------------------------------------------------------------

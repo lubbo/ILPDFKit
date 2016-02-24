@@ -64,6 +64,7 @@
  @return A new PDFFormButtonField object.
  */
 - (instancetype)initWithFrame:(CGRect)frame radio:(BOOL)rad NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder radio:(BOOL)rad NS_DESIGNATED_INITIALIZER;
 
 /**---------------------------------------------------------------------------------------
  * @name Post Initialization

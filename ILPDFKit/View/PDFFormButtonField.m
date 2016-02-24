@@ -79,25 +79,59 @@
 #pragma mark - PDFFormButtonField
 #pragma mark - Initialization
 
-- (instancetype)initWithFrame:(CGRect)frame radio:(BOOL)rad {
-    self = [super initWithFrame:frame];
-    if (self) {
-        _radio = rad;
-        self.opaque = NO;
-        self.backgroundColor = [UIColor clearColor];
-        _button = [UIButton buttonWithType:UIButtonTypeCustom];
-        CGFloat minDim = PDFButtonMinScaledDimension(self.bounds);
-        CGPoint center = CGPointMake(frame.size.width/2,frame.size.height/2);
-        _button.frame = CGRectMake(center.x-minDim, center.y-minDim, minDim*2, minDim*2);
-        if (_radio) _button.layer.cornerRadius = _button.frame.size.width/2;
-        _button.opaque = NO;
-        _button.backgroundColor = [UIColor clearColor];
-        [self addSubview:_button];
-        [_button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        self.userInteractionEnabled = NO;
-        _button.userInteractionEnabled  = YES;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self initWithCoder:aDecoder radio:NO];
+    {
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder radio:(BOOL)rad
+{
+    self = [super initWithCoder:aDecoder];
+    {
+        [self initialSetupWithRadio:rad frame:self.frame];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [self initWithFrame:frame radio:NO];
+    if (self)
+    {
+        
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame radio:(BOOL)rad
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        [self initialSetupWithRadio:rad frame:frame];
+    }
+    return self;
+}
+
+- (void) initialSetupWithRadio:(BOOL)rad frame:(CGRect)frame
+{
+    _radio = rad;
+    self.opaque = NO;
+    self.backgroundColor = [UIColor clearColor];
+    _button = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat minDim = PDFButtonMinScaledDimension(self.bounds);
+    CGPoint center = CGPointMake(frame.size.width/2,frame.size.height/2);
+    _button.frame = CGRectMake(center.x-minDim, center.y-minDim, minDim*2, minDim*2);
+    if (_radio) _button.layer.cornerRadius = _button.frame.size.width/2;
+    _button.opaque = NO;
+    _button.backgroundColor = [UIColor clearColor];
+    [self addSubview:_button];
+    [_button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.userInteractionEnabled = NO;
+    _button.userInteractionEnabled  = YES;
 }
 
 - (void)setButtonSuperview {

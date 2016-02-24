@@ -43,7 +43,6 @@
  @return A new PDFFormContainer object.
  */
 - (instancetype)initWithParentDocument:(PDFDocument *)parent NS_DESIGNATED_INITIALIZER;
-
 /**---------------------------------------------------------------------------------------
  * @name Retrieving Forms
  *  ---------------------------------------------------------------------------------------

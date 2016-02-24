@@ -57,7 +57,7 @@
  @return A new PDFDictionary object. Initialization in memory occurs when the instance receives a key or value based query.
  */
 - (instancetype)initWithDictionary:(CGPDFDictionaryRef)pdict NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)init NS_UNAVAILABLE;
 
 /** Merges the receiver's elements with the elements of changes.
  @param changes The keys and values are merged with and take precedence over the receiver.

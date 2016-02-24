@@ -51,6 +51,7 @@
  @return A new PDFArray object. Initialization in memory occurs when the instance receives value based query.
  */
 - (instancetype)initWithArray:(CGPDFArrayRef)parr NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 /**---------------------------------------------------------------------------------------
  * @name Rectangle Arrays

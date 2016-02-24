@@ -69,7 +69,7 @@
  @return A new PDFStream object.
  */
 - (instancetype)initWithStream:(CGPDFStreamRef)pstrm NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)init NS_UNAVAILABLE;
 /**---------------------------------------------------------------------------------------
  * @name Comparing Streams
  *  ---------------------------------------------------------------------------------------

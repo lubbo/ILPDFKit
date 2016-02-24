@@ -59,46 +59,81 @@
 }
 
 #pragma mark - PDFFormChoiceField
-
-- (instancetype)initWithFrame:(CGRect)frame options:(NSArray *)opt {
-    self = [super initWithFrame:frame];
-    if (self != nil) {
-        self.opaque = NO;
-        self.backgroundColor = [PDFWidgetColor colorWithAlphaComponent:1];
-        self.layer.cornerRadius = self.frame.size.height/6;
-        _options = opt;
-        _tv= [[UITableView alloc] initWithFrame:CGRectMake(0, frame.size.height, frame.size.width, frame.size.height*PDFChoiceFieldRowHeightDivisor) style:UITableViewStylePlain];
-        _tv.dataSource = self;
-        _tv.delegate = self;
-        _tv.opaque = NO;
-        _tv.backgroundColor = [UIColor clearColor];
-        _tv.backgroundView = nil;
-        _tv.alpha = 0;
-        _tv.layer.cornerRadius = 4;
-        _tv.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tv.separatorColor = [UIColor clearColor];
-        self.clipsToBounds = YES;
-        _baseFontHeight = [PDFWidgetAnnotationView fontSizeForRect:frame value:nil multiline:NO choice:YES];
-        _selection = [[UILabel alloc] initWithFrame:CGRectMake(1, 0, frame.size.width-frame.size.height, frame.size.height)];
-        _selection.opaque = NO;
-        _selection.adjustsFontSizeToFitWidth = YES;
-        [_selection setBackgroundColor:[UIColor clearColor]];
-        [_selection setTextColor:[UIColor blackColor]];
-        [_selection setFont:[UIFont systemFontOfSize:_baseFontHeight]];
-        [self addSubview:_selection];
-        _dropIndicator = [[PDFFormChoiceFieldDropIndicator alloc] initWithFrame:CGRectMake(frame.size.width-frame.size.height*1.5, -frame.size.height*0.25, frame.size.height*1.5, frame.size.height*1.5)];
-        [_dropIndicator setOpaque:NO];
-        [_dropIndicator setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_dropIndicator];
-        UIButton *middleButton = [[UIButton alloc] initWithFrame:self.bounds];
-        middleButton.opaque = NO;
-        middleButton.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-        middleButton.backgroundColor = [UIColor clearColor];
-        [middleButton addTarget:self action:@selector(dropButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:middleButton];
-        [self addSubview:_tv];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self initWithCoder:aDecoder options:nil];
+    if (self)
+    {
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder options:(NSArray *)opt
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        [self initialSetupWithFrame:self.frame options:opt];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [self initWithFrame:frame options:nil];
+    if (self)
+    {
+    }
+    return self;
+}
+
+
+- (instancetype)initWithFrame:(CGRect)frame options:(NSArray *)opt
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        [self initialSetupWithFrame:frame options:opt];
+    }
+    return self;
+}
+
+- (void) initialSetupWithFrame:(CGRect)frame options:(NSArray *)opt
+{
+    self.opaque = NO;
+    self.backgroundColor = [PDFWidgetColor colorWithAlphaComponent:1];
+    self.layer.cornerRadius = self.frame.size.height/6;
+    _options = opt;
+    _tv= [[UITableView alloc] initWithFrame:CGRectMake(0, frame.size.height, frame.size.width, frame.size.height*PDFChoiceFieldRowHeightDivisor) style:UITableViewStylePlain];
+    _tv.dataSource = self;
+    _tv.delegate = self;
+    _tv.opaque = NO;
+    _tv.backgroundColor = [UIColor clearColor];
+    _tv.backgroundView = nil;
+    _tv.alpha = 0;
+    _tv.layer.cornerRadius = 4;
+    _tv.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tv.separatorColor = [UIColor clearColor];
+    self.clipsToBounds = YES;
+    _baseFontHeight = [PDFWidgetAnnotationView fontSizeForRect:frame value:nil multiline:NO choice:YES];
+    _selection = [[UILabel alloc] initWithFrame:CGRectMake(1, 0, frame.size.width-frame.size.height, frame.size.height)];
+    _selection.opaque = NO;
+    _selection.adjustsFontSizeToFitWidth = YES;
+    [_selection setBackgroundColor:[UIColor clearColor]];
+    [_selection setTextColor:[UIColor blackColor]];
+    [_selection setFont:[UIFont systemFontOfSize:_baseFontHeight]];
+    [self addSubview:_selection];
+    _dropIndicator = [[PDFFormChoiceFieldDropIndicator alloc] initWithFrame:CGRectMake(frame.size.width-frame.size.height*1.5, -frame.size.height*0.25, frame.size.height*1.5, frame.size.height*1.5)];
+    [_dropIndicator setOpaque:NO];
+    [_dropIndicator setBackgroundColor:[UIColor clearColor]];
+    [self addSubview:_dropIndicator];
+    UIButton *middleButton = [[UIButton alloc] initWithFrame:self.bounds];
+    middleButton.opaque = NO;
+    middleButton.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    middleButton.backgroundColor = [UIColor clearColor];
+    [middleButton addTarget:self action:@selector(dropButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:middleButton];
+    [self addSubview:_tv];
 }
 
 #pragma mark - PDFWidgetAnnotationView

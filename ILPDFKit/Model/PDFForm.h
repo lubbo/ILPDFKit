@@ -202,7 +202,7 @@ typedef NS_ENUM(NSUInteger, PDFFormType) {
  @return A new PDFForm object. 
  */
 - (instancetype)initWithFieldDictionary:(PDFDictionary *)leaf page:(PDFPage *)pg parent:(PDFFormContainer *)p NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)init NS_UNAVAILABLE;
 /**---------------------------------------------------------------------------------------
  * @name Updating Data
  *  ---------------------------------------------------------------------------------------

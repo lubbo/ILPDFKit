@@ -55,25 +55,66 @@
 
 #pragma mark - PDFViewController
 
-- (instancetype)initWithData:(NSData *)data {
-    self = [super init];
-    if (self != nil) {
-        _document = [[PDFDocument alloc] initWithData:data];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self initWithNibName:nil bundle:nil data:nil];
+    if (self)
+    {
     }
     return self;
 }
 
-- (instancetype)initWithResource:(NSString *)name {
-    self = [super init];
-    if (self != nil) {
-        _document = [[PDFDocument alloc] initWithResource:name];
+- (instancetype)initWithData:(NSData *)data
+{
+    self = [self initWithNibName:nil bundle:nil data:data];
+    if (self)
+    {
+    }
+    return self;
+}
+
+- (instancetype)initWithResource:(NSString *)name
+{
+    self = [self initWithNibName:nil bundle:nil resource:name];
+    if (self != nil)
+    {
     }
     return self;
 }
 
 - (instancetype)initWithPath:(NSString *)path {
-    self = [super init];
-    if(self != nil) {
+    self = [self initWithNibName:nil bundle:nil path:path];
+    if(self)
+    {
+    }
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil data:(NSData *)data
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self)
+    {
+        _document = [[PDFDocument alloc] initWithData:data];
+    }
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil resource:(NSString *)name
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self)
+    {
+        _document = [[PDFDocument alloc] initWithResource:name];
+    }
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil path:(NSString *)path
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self)
+    {
         _document = [[PDFDocument alloc] initWithPath:path];
     }
     return self;

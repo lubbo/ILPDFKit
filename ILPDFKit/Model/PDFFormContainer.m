@@ -44,6 +44,15 @@
 
 
 #pragma mark - Initialization
+- (instancetype)init
+{
+    self = [self initWithParentDocument:nil];
+    if (self)
+    {
+    }
+    return self;
+}
+
 
 - (instancetype)initWithParentDocument:(PDFDocument *)parent {
     self = [super init];

@@ -56,7 +56,7 @@ As an example:
  @return self.
  */
 - (instancetype)initWithBytes:(NSData *)bytes NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)init NS_UNAVAILABLE;
 /** Creates an instance of PDFObjectParser initialized with a sequence of bytes.
  @param bytes The byte sequence of the object to parse as it appears in a PDF file.
  @return An instance of PDFObjectParser.

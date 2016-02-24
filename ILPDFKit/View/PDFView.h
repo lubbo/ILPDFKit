@@ -55,7 +55,7 @@
  */
 
 - (instancetype)initWithFrame:(CGRect)frame dataOrPath:(id)dataOrPath additionViews:(NSArray *)widgetAnnotationViews NS_DESIGNATED_INITIALIZER;
-
+- (instancetype) initWithCoder:(NSCoder *)aDecoder dataOrPath:(id)dataOrPath additionViews:(NSArray*)widgetAnnotationViews NS_DESIGNATED_INITIALIZER;
 /**---------------------------------------------------------------------------------------
  * @name Adding and Removing Additions
  *  ---------------------------------------------------------------------------------------

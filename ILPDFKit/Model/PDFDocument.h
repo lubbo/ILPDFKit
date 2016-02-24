@@ -93,6 +93,7 @@
  */
 - (instancetype)initWithPath:(NSString *)path NS_DESIGNATED_INITIALIZER;
 
+- (instancetype)init NS_UNAVAILABLE;
 /**---------------------------------------------------------------------------------------
  * @name Finding Document Structure
  *  ---------------------------------------------------------------------------------------

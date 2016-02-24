@@ -29,6 +29,7 @@
 #import "PDFNull.h"
 
 #import "PDFForm.h"
+#import "PDFFormContainer.h"
 #import "PDFPage.h"
 #import "PDFDocument.h"
 #import "PDFView.h"
